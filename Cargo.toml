@@ -1,5 +1,5 @@
 [package]
-name = "day-01"
+name = "aoc-2023"
 version = "0.1.0"
 edition = "2021"
 authors = ["Dominik Baumann <hey@sobrinth.com>"]
@@ -7,3 +7,4 @@ authors = ["Dominik Baumann <hey@sobrinth.com>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+aoc-main = { version = "0.5.0", features = ["bench"], git = "https://github.com/remi-dupre/aoc"}

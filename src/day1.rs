@@ -1,10 +1,16 @@
-fn main() {
-    let input = include_str!("./input2.txt");
-    let output = part2(input);
-    dbg!(output);
+pub fn part1(input: &str) -> u32 {
+    input
+        .lines()
+        .map(|l| {
+            l.chars()
+                .filter_map(|c| c.to_digit(10))
+                .collect::<Vec<u32>>()
+        })
+        .map(|v| 10 * v.first().unwrap() + v.last().unwrap())
+        .sum()
 }
 
-fn part2(input: &str) -> u32 {
+pub fn part2(input: &str) -> u32 {
     input
         .lines()
         .map(|l| {
@@ -31,6 +37,17 @@ fn part2(input: &str) -> u32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn part_one() {
+        let result = part1(
+            "1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet",
+        );
+        assert_eq!(result, 142)
+    }
 
     #[test]
     fn part_two() {
