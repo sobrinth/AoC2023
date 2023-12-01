@@ -4,10 +4,17 @@ fn main() {
     dbg!(output);
 }
 
-fn part1(input: &str) -> String {
-    todo!()
+fn part1(input: &str) -> u32 {
+    input
+        .lines()
+        .map(|l| {
+            l.chars()
+                .filter_map(|c| c.to_digit(10))
+                .collect::<Vec<u32>>()
+        })
+        .map(|v| 10 * v.first().unwrap() + v.last().unwrap())
+        .sum()
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -15,7 +22,12 @@ mod tests {
 
     #[test]
     fn part_one() {
-        let result = part1("");
-        assert_eq!(result, false)
+        let result = part1(
+            "1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet",
+        );
+        assert_eq!(result, 142)
     }
 }
